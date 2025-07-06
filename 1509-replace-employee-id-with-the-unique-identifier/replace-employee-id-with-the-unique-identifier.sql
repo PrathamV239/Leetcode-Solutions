@@ -1,4 +1,4 @@
 SELECT unique_id, name
-FROM Employees
-LEFT JOIN EmployeeUNI
+FROM EmployeeUNI
+RIGHT JOIN Employees
 on EmployeeUNI.id = Employees.id
