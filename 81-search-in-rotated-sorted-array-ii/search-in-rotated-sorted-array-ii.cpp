@@ -18,7 +18,7 @@ public:
                     continue;
                 }
               if(nums[l] <= nums[m]){
-                if(nums[l] <= target && target <= nums[m]){
+                if(nums[l] <= target && target < nums[m]){
                     r = m -1;
                 }
                 else {
@@ -26,7 +26,7 @@ public:
                 }
               }
               else{
-                if(nums[m] <= target && target <= nums[r]){
+                if(nums[m] < target && target <= nums[r]){
                     l = m+1;
                 }
                 else {
