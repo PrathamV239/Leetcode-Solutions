@@ -8,14 +8,15 @@ public:
     }
     
     void push(int x) {
-        // if(s1.empty() && !s2.empty()){
+        if(s1.empty() && !s2.empty()){
             
-        //     while(!s2.empty()){
-        //     s1.push(s2.top());
-        //     s2.pop();
-        // }
+            while(!s2.empty()){
+                s1.push(s2.top());
+                s2.pop();
+            }
+            
+        }
         s1.push(x);
-    // }
        
 }
     
