@@ -1,9 +1,13 @@
 class Solution {
 public:
+
+// redo with gap method
     void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
         vector<int> ans;
         int i = 0;
         int j = 0;
+
+
        
 
         while (i < m && j < n){
