@@ -14,10 +14,21 @@ public:
         ListNode* curr1 = list1;
         ListNode* curr2 = list2;
 
-        ListNode* newNode = new ListNode(); 
-        ListNode* head = newNode; 
-        ListNode* curr3 = newNode;
+        ListNode* head; 
+
+        if(curr1 == nullptr) return curr2;
+        if(curr2 == nullptr) return curr1;
         
+        if(curr1 -> val <= curr2 -> val){
+            head = curr1;
+            curr1 = curr1->next;
+        }        
+        else {
+            head = curr2;
+            curr2 = curr2->next;
+        }
+        
+        ListNode* curr3 = head;
       
         while(curr1 != nullptr && curr2 != nullptr ){
            
@@ -38,6 +49,6 @@ public:
         if(curr2 != nullptr){
             curr3 -> next = curr2; 
         }
-        return head->next;
+        return head;
     }
 };
