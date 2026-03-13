@@ -1,44 +1,27 @@
 class Solution {
-public:
-
-    int findMax(vector<int> piles){
-        int n = piles.size();
-        int maxi = INT_MIN;
-        for(int i =0; i < n; i++){
-            maxi = max(maxi,piles[i]);
+public: 
+    long long timetaken(vector<int> &nums, int h){
+        long long sum = 0;
+        for (int i =0; i < nums.size(); i++){
+            sum = sum + ceil((double)nums[i] / h);
         }
-        return maxi;
+        return sum;
     }
-
-    long long calctime(vector<int> piles, int h){
-         long long total =0;
-
-        for(int i =0; i < piles.size(); i++){
-       
-        total = total + ceil(double(piles[i]) / h);
-        
-        }
-        return total;
-    }
-
-
     int minEatingSpeed(vector<int>& piles, int h) {
+        int low = 1;
+        int high = *max_element(piles.begin(), piles.end());
+        int ans = 1;
 
-        int low =1;
-        int high = findMax(piles); 
-        int ans = findMax(piles);
-
-        while (low <= high){
+        while(low <= high){
             int mid = (low + high) /2;
-            long long totalH = calctime(piles, mid);
-
-            if(totalH <= h){
+            long long res = timetaken(piles, mid);
+            if(res > h)
+                low = mid +1;
+            else {
                 ans = mid;
-                high = mid - 1;
-            }
-            else 
-                low = mid + 1;
-        }
-        return ans;     
+                high = mid -1;  
+            }      
+        }        
+        return ans;
     }
 };
