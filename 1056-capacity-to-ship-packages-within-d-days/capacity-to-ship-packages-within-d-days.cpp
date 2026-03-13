@@ -1,34 +1,34 @@
 class Solution {
 public:
-    int DayNeeded(vector<int>& weights, int capacity){
-        int currload = 0;
+    int daysreq(vector<int> nums, int m){
+        int currsum= 0;
         int days = 1;
-        for(int i = 0; i < weights.size(); i++){
-            if(currload + weights[i] > capacity){
-                days++;
-                currload = weights[i];
+        for(int i =0; i < nums.size(); i++){
+            if(currsum + nums[i] <= m){
+                currsum+=nums[i];
             }
-            else 
-                currload = currload + weights[i];
+            else{
+                days++;
+                currsum = nums[i];
+            } 
         }
         return days;
     }
     int shipWithinDays(vector<int>& weights, int days) {
-
         int low = *max_element(weights.begin(), weights.end());
-        int high = accumulate(weights.begin(), weights.end(), 0);
-        int ans = 0;
-        while (low <= high){
-            int mid = (low + high) / 2;
-
-            if(DayNeeded(weights, mid) <= days){
-                ans = mid;
-                high = mid - 1;
+        int high = accumulate(weights.begin(), weights.end(),0);
+        int res = 0;
+        while(low <= high){
+            int mid = (low + high) /2;
+            int ans =  daysreq(weights, mid);
+            
+            if(ans <= days){
+                res = mid;
+                high = mid -1;
             }
-            else {
+            else
                 low = mid +1;
-            }
         }
-        return ans;        
+        return res;        
     }
 };
