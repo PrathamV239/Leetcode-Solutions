@@ -1,27 +1,28 @@
 class Solution {
 public:
-    int sumof(vector<int>& nums, int m){
+    int divisor(vector<int> nums, int mid){
+        int sum = 0;
         int n = nums.size();
-        int sum =0;
         for(int i =0; i < n; i++){
-            sum = sum + ceil((double)nums[i] / m);
+            sum = sum  + ceil((double)nums[i] / mid);
         }
         return sum;
     }
     int smallestDivisor(vector<int>& nums, int threshold) {
         int low = 1;
         int high = *max_element(nums.begin(), nums.end());
-        int res = 1;
+
+        int ans = *max_element(nums.begin(), nums.end());
         while(low <= high){
             int mid = (low + high) /2;
-            int ans = sumof(nums, mid);
-            if(ans > threshold)
-                low = mid +1; 
-            else {
-                res = mid;
+            int res = divisor(nums, mid);
+            if(res <= threshold){
+                ans = mid;
                 high = mid -1;
             }
+            else 
+                low = mid+1;
         }
-    return res;
+        return ans;
     }
 };
