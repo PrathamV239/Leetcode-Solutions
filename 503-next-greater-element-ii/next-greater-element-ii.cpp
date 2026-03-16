@@ -14,7 +14,7 @@ public:
             }
             if( i < n){
                 if(st.empty())
-                    ans[i] = -1;
+                    ans[ind] = -1;
                 else 
                     ans[ind] = st.top();
             
