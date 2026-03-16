@@ -1,34 +1,36 @@
 class Solution {
 public:
-    int daysreq(vector<int> nums, int m){
-        int currsum= 0;
-        int days = 1;
-        for(int i =0; i < nums.size(); i++){
-            if(currsum + nums[i] <= m){
-                currsum+=nums[i];
-            }
-            else{
-                days++;
-                currsum = nums[i];
-            } 
+    int quantity(vector<int> nums, int mid){
+    int day =1;
+    int sum =0;
+
+    for(int i =0; i< nums.size(); i++){
+        if(sum + nums[i] > mid){
+            day++;
+            sum = nums[i];
         }
-        return days;
+        else 
+            sum += nums[i];
     }
+    return day;
+    }
+    
     int shipWithinDays(vector<int>& weights, int days) {
         int low = *max_element(weights.begin(), weights.end());
         int high = accumulate(weights.begin(), weights.end(),0);
-        int res = 0;
+        int ans = -1;
         while(low <= high){
             int mid = (low + high) /2;
-            int ans =  daysreq(weights, mid);
-            
-            if(ans <= days){
-                res = mid;
-                high = mid -1;
+            cout << mid<<endl;
+            int res = quantity(weights,mid);
+      
+            if(res > days)
+               low = mid +1;
+            else{
+                ans = mid;
+                 high = mid -1;
             }
-            else
-                low = mid +1;
-        }
-        return res;        
+        } 
+        return ans;   
     }
 };
