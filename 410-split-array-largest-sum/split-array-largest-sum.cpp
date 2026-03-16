@@ -1,5 +1,6 @@
 class Solution {
 public:
+
     int countParti(vector<int>& nums, int maxSum){
         int n = nums.size();
         int partitions = 1;
