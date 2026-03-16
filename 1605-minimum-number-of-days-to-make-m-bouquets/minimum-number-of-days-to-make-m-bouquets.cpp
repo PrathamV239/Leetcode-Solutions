@@ -10,13 +10,7 @@ public:
                 if(cntr == k){
                     bouqt++;
                     cntr =0;
-                }
-                // if(cntr == k){
-                //     bouqt++;
-                //     cntr = 1;
-                // }
-                // else 
-                //     cntr++;
+                }              
             }else {
                 cntr = 0;
             }
