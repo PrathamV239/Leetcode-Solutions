@@ -5,23 +5,27 @@ public:
         int n = nums.size();
         vector<int> ans(n);
 
-        for(int i = 2*n-1; i >=0; i-- ){
-            int ind = i % n;
-            int currEle = nums[ind];
+       
+        for(int i = 2*n-1; i >= 0; i--){
+
+         int ind = i % n;
+         int currEle =  nums[ind];
 
             while(!st.empty() && st.top() <= currEle){
                 st.pop();
             }
-            if( i < n){
-                if(st.empty())
-                    ans[ind] = -1;
-                else 
-                    ans[ind] = st.top();
-            
-            }
+            if( i < n ){
 
+                if(st.empty()){
+                    ans[ind] = -1;
+                }else 
+                    ans[ind] = st.top();
+
+            }
             st.push(currEle);
+
         }
         return ans;
+        
     }
 };
