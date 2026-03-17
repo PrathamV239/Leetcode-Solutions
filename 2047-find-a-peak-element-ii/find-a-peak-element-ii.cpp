@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int maxi(vector<vector<int>> nums, int col, int m){
+    int maxi(vector<vector<int>>& nums, int col, int m){
 
         int max = -1;
         int indx = -1;
