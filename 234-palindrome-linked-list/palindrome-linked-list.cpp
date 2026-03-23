@@ -14,7 +14,7 @@ public:
         ListNode* curr1 = head;
         ListNode* curr2 = head;
         stack <int> st;
-        if(head ->next == nullptr)
+        if(head == nullptr || head ->next == nullptr)
             return true;
 
         while(curr2 != nullptr && curr2->next != nullptr){            
