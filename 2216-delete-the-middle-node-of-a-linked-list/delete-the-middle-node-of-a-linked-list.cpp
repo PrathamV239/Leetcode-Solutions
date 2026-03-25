@@ -15,10 +15,10 @@ public:
         ListNode* fast = head;
         if(head == nullptr || head -> next == nullptr)
             return nullptr;
-        else if (head -> next -> next == nullptr){
-            head-> next = nullptr;
-            return head;
-        }
+        // else if (head -> next -> next == nullptr){
+        //     head-> next = nullptr;
+        //     return head;
+        // }
         fast = fast -> next -> next;
         while(fast != nullptr && fast -> next != nullptr )
         {
