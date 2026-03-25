@@ -13,7 +13,7 @@ public:
         ListNode* fast = head;
         if(head == nullptr ||head -> next == nullptr || head -> next -> next == nullptr) return false;
         
-        while ((fast->next != 0) && (fast -> next -> next !=0)){
+        while (fast != NULL && fast -> next != NULL){
             slow = slow -> next;
             fast = fast -> next -> next;
             if(fast == nullptr) return false;
