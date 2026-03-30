@@ -9,7 +9,7 @@ public:
             return false;
         int currmax = i + nums[i];
         maxInd = max(maxInd, currmax);
-        cout <<maxInd <<" " << currmax <<endl;
+    
        }
        if(maxInd >= n-1)
         return true;
