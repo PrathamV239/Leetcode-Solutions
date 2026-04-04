@@ -14,19 +14,21 @@ public:
     bool isBalanced(TreeNode* root) {
         return dfs(root) != -1;
     }
+
     int dfs(TreeNode* root){
-        if(root == NULL)
+        if(root == NULL)    
             return 0;
         
         int lh = dfs(root -> left);
-        if(lh == -1)
-            return -1;
+            if (lh == -1)
+                return -1;
         int rh = dfs(root -> right);
-        if(rh == -1)
-            return -1;
+            if(rh == -1)
+                return -1;
 
         if(abs(lh - rh) > 1)
             return -1;
+        
         return 1+max(lh,rh);
-    }
+    } 
 };
